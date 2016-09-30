@@ -36,14 +36,14 @@ def argdeco(arg):
             result = func(*args, **kwargs)
             for thread in threading.enumerate():
                 print(arg, thread.name)
-                if thread.name.startswith(arg):
+                if thread.__class__.__name__.startswith(arg):
                     print("this thread will be stopped: ", thread)
                     thread.stop()
             return result
         return new
     return threaddeco
 
-@argdeco("Thread-1")
+@argdeco("runner")
 def runthread():
     th = runner()
     
