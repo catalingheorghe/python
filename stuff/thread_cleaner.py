@@ -39,6 +39,11 @@ def argdeco(arg):
                 if thread.__class__.__name__.startswith(arg):
                     print("this thread will be stopped: ", thread)
                     thread.stop()
+                    print("sleeping 3")
+                    sleep(3)
+                    print(threading.enumerate())
+                    print("stopping again")
+                    thread.stop()
             return result
         return new
     return threaddeco
